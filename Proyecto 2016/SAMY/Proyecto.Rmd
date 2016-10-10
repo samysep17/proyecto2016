@@ -1,0 +1,21 @@
+---
+title: "Proyecto2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+H <- read.csv("E:\\Proyecto 2016\\Archivos CSV\\tabula-2004.Masculino.CSV", stringsAsFactors = FALSE)
+str(H)
+head(H)
+```
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+

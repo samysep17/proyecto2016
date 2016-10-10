@@ -1,0 +1,587 @@
+---
+title: "ProyectoEstadistica"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("/Volumes/SAMY")
+getwd()
+```
+
+```{r}
+#FN2004F<-read.csv("D:\\Proyecto 2016\\Archivos CSV\\tabula-2004.Femenino.csv", stringsAsFactors = FALSE)
+FN2004F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2004.Femenino.csv", stringsAsFactors = FALSE)
+FN2004F
+head(FN2004F)
+str(FN2004F)
+names(FN2004F) <- tolower(names(FN2004F))
+FN2004F <- within(FN2004F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2004F
+
+
+FN2004M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2004.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2004M) <- tolower(names(FN2004M))
+FN2004M <- within(FN2004M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2004M
+
+
+FN2004G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2004.General.csv", stringsAsFactors = FALSE)
+names(FN2004G) <- tolower(names(FN2004G))
+FN2004G <- within(FN2004G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2004G
+
+
+FN2005F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2005.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2005F) <- tolower(names(FN2005F))
+FN2005F <- within(FN2005F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2005F
+
+
+FN2005M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2005.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2005M) <- tolower(names(FN2005M))
+FN2005M <- within(FN2005M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2005M
+
+
+FN2005G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2005.General.csv", stringsAsFactors = FALSE)
+names(FN2005G) <- tolower(names(FN2005G))
+FN2005G <- within(FN2005G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2005G
+
+
+FN2006F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2006.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2006F) <- tolower(names(FN2006F))
+FN2006F <- within(FN2006F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2006F
+
+
+FN2006M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2006.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2006M) <- tolower(names(FN2006M))
+FN2006M <- within(FN2006M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2006M
+
+
+FN2006G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2006.General.csv", stringsAsFactors = FALSE)
+names(FN2006G) <- tolower(names(FN2006G))
+FN2006G <- within(FN2006G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2006G
+
+
+FN2007F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2007.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2007F) <- tolower(names(FN2007F))
+FN2007F <- within(FN2007F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2007F
+
+
+FN2007M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2007.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2007M) <- tolower(names(FN2007M))
+FN2007M <- within(FN2007M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2007M
+
+
+FN2007G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2007.General.csv", stringsAsFactors = FALSE)
+names(FN2007G) <- tolower(names(FN2007G))
+FN2007G <- within(FN2007G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2007G
+
+FN2008F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2008.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2008F) <- tolower(names(FN2008F))
+FN2008F <- within(FN2008F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2008F
+
+
+FN2008M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2008.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2008M) <- tolower(names(FN2008M))
+FN2008M <- within(FN2008M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2008M
+
+
+FN2008G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2008.General.csv", stringsAsFactors = FALSE)
+names(FN2008G) <- tolower(names(FN2008G))
+FN2008G <- within(FN2008G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2008G
+
+
+FN2009F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2009.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2009F) <- tolower(names(FN2009F))
+FN2009F <- within(FN2009F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2009F
+
+
+FN2009M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2009.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2009M) <- tolower(names(FN2009M))
+FN2009M <- within(FN2009M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2009M
+
+
+FN2009G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2009.General.csv", stringsAsFactors = FALSE)
+names(FN2009G) <- tolower(names(FN2009G))
+FN2009G <- within(FN2009G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2009G
+
+
+FN2010F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2010.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2010F) <- tolower(names(FN2010F))
+FN2010F <- within(FN2010F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2010F
+
+
+FN2010M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2010.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2010M) <- tolower(names(FN2010M))
+FN2010M <- within(FN2010M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2010M
+
+
+FN2010G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2010.General.csv", stringsAsFactors = FALSE)
+names(FN2010G) <- tolower(names(FN2010G))
+FN2010G <- within(FN2010G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2010G
+
+
+FN2011F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2011.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2011F) <- tolower(names(FN2011F))
+FN2011F <- within(FN2011F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2011F
+
+
+FN2011M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2011.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2011M) <- tolower(names(FN2011M))
+FN2011M <- within(FN2011M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2011M
+
+
+FN2011G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2011.General.csv", stringsAsFactors = FALSE)
+names(FN2011G) <- tolower(names(FN2011G))
+FN2011G <- within(FN2011G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2011G
+
+
+FN2012F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2012.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2012F) <- tolower(names(FN2012F))
+FN2012F <- within(FN2012F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2012F
+
+
+FN2012M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2012.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2012M) <- tolower(names(FN2012M))
+FN2012M <- within(FN2012M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2012M
+
+
+FN2012G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2012.General.csv", stringsAsFactors = FALSE)
+names(FN2012G) <- tolower(names(FN2012G))
+FN2012G <- within(FN2012G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2012G
+
+
+FN2013F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2013.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2013F) <- tolower(names(FN2013F))
+FN2013F <- within(FN2013F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2013F
+
+
+FN2013M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2013.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2013M) <- tolower(names(FN2013M))
+FN2013M <- within(FN2013M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2013M
+
+
+FN2013G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2013.General.csv", stringsAsFactors = FALSE)
+names(FN2013G) <- tolower(names(FN2013G))
+FN2013G <- within(FN2013G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2013G
+
+
+FN2014F<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2014.Femenino.csv", stringsAsFactors = FALSE)
+names(FN2014F) <- tolower(names(FN2014F))
+FN2014F <- within(FN2014F, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2014F
+
+
+FN2014M<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2014.Masculino.csv", stringsAsFactors = FALSE)
+names(FN2014M) <- tolower(names(FN2014M))
+FN2014M <- within(FN2014M, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                     }
+                     )
+FN2014M
+
+
+FN2014G<-read.csv("/Volumes/SAMY/Proyecto 2016/Archivos CSV/tabula-2014.General.csv", stringsAsFactors = FALSE)
+names(FN2014G) <- tolower(names(FN2014G))
+FN2014G <- within(FN2014G, 
+                     {
+                       estado <- gsub("M\.*", "México", estado)
+                       estado <- gsub("Mich.*", "Michoacán", estado)
+                       estado <- gsub("Nuevo.*", "Nuevo León", estado)
+                       estado <- gsub("Quer.*", "Querétaro", estado)
+                       estado <- gsub("San.*", "San Luis Potosí", estado)
+                       estado <- gsub("Yucat.*", "Yucatán", estado)
+                       salud <- gsub()
+                     }
+                     )
+FN2014G <- within(FN2014G, 
+                     {
+                       salud[salud == "S.R."] <- 0
+                       imss.ord[imss.ord == "S.R."] <- 0
+                       issste[issste == "S.R."] <- 0
+                       imss.op[imss.op == "S.R."] <- 0
+                       dif[dif == "S.R."] <- 0
+                       pemex[pemex == "S.R."] <- 0
+                       sedena[sedena == "S.R."] <- 0
+                       semar[semar == "S.R."] <- 0
+                       otras[otras == "S.R."] <- 0
+                       total[total == "S.R."] <- 0
+                     }
+                     )
+FN2014G <- within(FN2014G, 
+                     {
+                       salud[salud == "<NA>"] <- 0
+                       imss.ord[imss.ord == "<NA>"] <- 0
+                       issste[issste == "<NA>"] <- 0
+                       imss.op[imss.op == "<NA>"] <- 0
+                       dif[dif == "<NA>"] <- 0
+                       pemex[pemex == "<NA>"] <- 0
+                       sedena[sedena == "<NA>"] <- 0
+                       semar[semar == "<NA>"] <- 0
+                       otras[otras == "<NA>"] <- 0
+                       total[total == "<NA>"] <- 0
+                     }
+                     )
+FN2014G <- within(FN2014G, 
+                     {
+                       salud[salud == "0"] <- NA
+                       imss.ord[imss.ord == "0"] <- NA
+                       issste[issste == "0"] <- NA
+                       imss.op[imss.op == "0"] <- NA
+                       dif[dif == "0"] <- NA
+                       pemex[pemex == "0"] <- NA
+                       sedena[sedena == "0"] <- NA
+                       semar[semar == "0"] <- NA
+                       otras[otras == "0"] <- NA
+                       total[total == "0"] <- NA
+                     }
+                     )
+
+FN2014G <- within(FN2014G, 
+                     {
+                       salud <- gsub("NA", "0", salud)
+                       imss.ord <- gsub("NA", "0", imss.ord)
+                       issste <- gsub("NA", "0", issste)
+                       imss.op <- gsub("NA", "0", imss.op)
+                       dif <- gsub("NA", "0", dif)
+                       pemex <- gsub("NA", "0", pemex)
+                       sedena <- gsub("NA", "0", sedena)
+                       semar <- gsub("NA", "0", semar)
+                       otras <- gsub("NA", "0", otras)
+                       total <- gsub("NA", "0", total)
+                     }
+                     )
+
+FN2014G
+
+#siniestros$suma.asegurada <- as.numeric(gsub("[$, ]", "", siniestros$suma.asegurada))
+FN2014G$salud <- as.numeric(gsub("[ ]", "", FN2014G$salud))
+FN2014G$imss.ord <- as.numeric(gsub("[ ]", "", FN2014G$imss.ord))
+FN2014G$issste <- as.numeric(gsub("[ ]", "", FN2014G$issste))
+FN2014G$imss.op <- as.numeric(gsub("[ ]", "", FN2014G$imss.op))
+FN2014G$dif <- as.numeric(gsub("[ ]", "", FN2014G$dif))
+FN2014G$pemex <- as.numeric(gsub("[ ]", "", FN2014G$pemex))
+FN2014G$sedena <- as.numeric(gsub("[ ]", "", FN2014G$sedena))
+FN2014G$semar <- as.numeric(gsub("[ ]", "", FN2014G$semar))
+FN2014G$otras <- as.numeric(gsub("[ ]", "", FN2014G$otras))
+FN2014G$total <- as.numeric(gsub("[ ]", "", FN2014G$total))
+str(FN2014G)
+FN2014G
+mean(FN2014G$pemex)
+```
+
